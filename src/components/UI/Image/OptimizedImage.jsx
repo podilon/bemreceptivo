@@ -1,19 +1,21 @@
-
+import 'react';
 
 const OptimizedImage = ({ avifSrc, svgSrc, pngSrc, alt, className }) => {
-    return (
-      <picture>
-        {/* Primeiro tenta carregar a imagem em AVIF, caso o navegador suporte */}
-        <source srcSet={avifSrc} type="image/avif" />
-        
-        {/* Depois tenta carregar o SVG (caso o navegador não suporte AVIF) */}
-        <source srcSet={svgSrc} type="image/svg+xml" />
-        
-        {/* Por fim, carrega a imagem PNG como fallback final */}
-        <img src={pngSrc} alt={alt} className={className} />
-      </picture>
-    );
-  };
-  
-  export default OptimizedImage;
-  
+  return (
+    <picture>
+      {/* Usar o AVIF se o navegador suportar */}
+      <source srcSet={avifSrc} type="image/avif" />
+      {/* Usar o SVG se o navegador suportar */}
+      <source srcSet={svgSrc} type="image/svg+xml" />
+      {/* Usar o PNG como fallback */}
+      <img
+        src={pngSrc}
+        alt={alt}
+        className={className}
+        loading="lazy" // Opcional: Lazy loading para otimização de desempenho
+      />
+    </picture>
+  );
+};
+
+export default OptimizedImage;

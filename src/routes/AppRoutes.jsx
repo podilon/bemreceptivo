@@ -1,10 +1,10 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import NavBar from "../components/NavBar/NavBar";
 import GlobalSeo from "../components/Seo/GlobalSEO";
 import ErrorPage from "../pages/ErrorPage/ErrorPage";
 import Home from "../pages/Home/Home";
 import Footer from "../components/Footer/Footer";
-import WhatsappButton from "../components/WhatsappButton/WhatsappButton";
+import WhatsappButton from "../components/UI/WhatsappButton/WhatsappButton";
+import Header from "../components/Header/Header";
 
 const AppRoutes = () => {
     return (
@@ -12,9 +12,7 @@ const AppRoutes = () => {
             <GlobalSeo /> {/* Meta tags de SEO */}
             
             {/* O NavBar agora está fora das rotas para aparecer em todas as páginas */}
-            <NavBar /> 
-            
-
+            <Header />
             <Routes>
                 {/* Defina as rotas principais aqui */}
                 <Route path="/" element={<Home />} />                
@@ -25,8 +23,9 @@ const AppRoutes = () => {
 
             {/* Botão do WhatsApp sempre disponível na tela */}
             <WhatsappButton phone="558541416666" />
-
+           
             <Footer />
+            
         </Router>
     );
 };
