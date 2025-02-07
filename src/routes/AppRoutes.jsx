@@ -6,16 +6,19 @@ import Footer from "../components/Footer/Footer";
 import WhatsappButton from "../components/UI/WhatsappButton/WhatsappButton";
 import Header from "../components/Header/Header";
 
+
 const AppRoutes = () => {
     return (
         <Router>
             <GlobalSeo /> {/* Meta tags de SEO */}
-            
-            {/* O NavBar agora está fora das rotas para aparecer em todas as páginas */}
+
+           
             <Header />
+
+           
             <Routes>
                 {/* Defina as rotas principais aqui */}
-                <Route path="/" element={<Home />} />                
+                <Route path="/" element={<Home />} />
 
                 {/* Rota comodín para captura de erro 404 */}
                 <Route path="*" element={<ErrorPage />} />
@@ -23,9 +26,9 @@ const AppRoutes = () => {
 
             {/* Botão do WhatsApp sempre disponível na tela */}
             <WhatsappButton phone="558541416666" />
-           
+
             <Footer />
-            
+
         </Router>
     );
 };

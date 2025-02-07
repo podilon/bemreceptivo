@@ -23,7 +23,7 @@ const DestinosCards = () => {
         png: '/images/png/bem-receptivo-lagoinha.png',
       },
       buttonText: 'Ver Mais',
-      onButtonClick: () => alert('Mais informações sobre Canoa Quebrada'),
+      onButtonClick: () => alert('Mais informações sobre Lagoinha'),
     },
     {
       title: 'Praia do Futuro',
@@ -39,17 +39,23 @@ const DestinosCards = () => {
   ];
 
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-      {destinos.map((destino, index) => (
-        <DestinoCard
-          key={index}
-          image={destino.image}
-          title={destino.title}
-          description={destino.description}
-          buttonText={destino.buttonText}
-          onButtonClick={destino.onButtonClick}
-        />
-      ))}
+    <div className="min-h-screen flex flex-col justify-center items-center bg-gradient-to-b from-yellow-300   via-yellow-400 to-orange-500   py-20 px-4">
+      <h1 className="text-3xl sm:text-4xl font-bold text-white text-center mb-12">
+        Conheça nossos principais destinos no Ceará
+      </h1>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 w-full max-w-6xl">
+        {destinos.map((destino, index) => (
+          <DestinoCard
+            key={index}
+            image={destino.image}
+            title={destino.title}
+            description={destino.description}
+            buttonText={destino.buttonText}
+            onButtonClick={destino.onButtonClick}
+            className="w-[90%] sm:w-[80%] h-[400px] mx-auto shadow-lg shadow-black/20 rounded-lg transition-all duration-300 hover:scale-105 hover:shadow-2xl"
+          />
+        ))}
+      </div>
     </div>
   );
 };
