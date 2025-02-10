@@ -1,5 +1,3 @@
-import 'react';
-
 import Button from '../UI/Button/Button';
 import OptimizedImage from '../UI/Image/OptimizedImage';
 
@@ -10,8 +8,9 @@ const CanoaQuebradaCard = () => {
       'Lagoinha - A povoação adquiriu fama ao ser descoberta, na década de 1970, pelos "hippies", que ali encontraram um lugar remoto, com grandes belezas, habitado apenas por uma tribo indígena e alguns pescadores. Até hoje preservam a tradição de pescar com jangadas no mar.',
     image: {
       avif: '/images/avif/bem-receptivo-lagoinha.avif',
-        svg: '/images/svg/bem-receptivo-lagoinha.svg',
-        png: '/images/png/bem-receptivo-lagoinha.png',
+      webp: '/images/webp/bem-receptivo-lagoinha.webp', // Adicionado WebP
+      svg: '/images/svg/bem-receptivo-lagoinha.svg',
+      png: '/images/png/bem-receptivo-lagoinha.png',
     },
     buttonText: 'Ver Mais',
     onButtonClick: () => alert('Mais informações sobre Canoa Quebrada'),
@@ -21,9 +20,9 @@ const CanoaQuebradaCard = () => {
     <section className="flex flex-col lg:flex-row bg-white shadow-lg rounded-xl p-6 space-y-6 lg:space-y-0 lg:space-x-6">
       {/* Imagem */}
       <div className="flex-1 flex justify-center items-center">
-       
         <OptimizedImage
           avifSrc={destino.image.avif}
+          webpSrc={destino.image.webp} // Adicionado WebP
           svgSrc={destino.image.svg}
           pngSrc={destino.image.png}
           alt={destino.title}
@@ -47,7 +46,6 @@ const CanoaQuebradaCard = () => {
           <img src="/icons/whatsapp.svg" alt="WhatsApp" className="w-5 h-5" />
           {destino.buttonText}
         </Button>
-        
       </div>
     </section>
   );

@@ -16,6 +16,7 @@ function NavBar() {
           <a href="#" className="flex items-center">
             <OptimizedImage
               avifSrc="/images/avif/bem-receptivo-144x144.avif"
+              webpSrc="/images/webp/bem-receptivo-144x144.webp"
               svgSrc="/images/svg/bem-receptivo-144x144.svg"
               pngSrc="/images/png/bem-receptivo-144x144.png"
               alt="Logo Bem Receptivo"
@@ -25,6 +26,7 @@ function NavBar() {
           <a href="#" className="block">
             <OptimizedImage
               avifSrc="/images/avif/title-bem-receptivo-menu.avif"
+              webpSrc="/images/webp/title-bem-receptivo-menu.webp"
               svgSrc="/images/svg/title-bem-receptivo-menu.svg"
               pngSrc="/images/png/title-bem-receptivo-menu.png"
               alt="Título Bem Receptivo"
@@ -69,6 +71,7 @@ function NavBar() {
           <a href="#" className="flex items-center">
             <OptimizedImage
               avifSrc="/images/avif/bem-receptivo-144x144.avif"
+              webpSrc="/images/webp/bem-receptivo-144x144.webp"
               svgSrc="/images/svg/bem-receptivo-144x144.svg"
               pngSrc="/images/png/bem-receptivo-144x144.png"
               alt="Logo Bem Receptivo"
@@ -78,6 +81,7 @@ function NavBar() {
           <a href="#" className="block">
             <OptimizedImage
               avifSrc="/images/avif/title-bem-receptivo-menu.avif"
+              webpSrc="/images/webp/title-bem-receptivo-menu.webp"
               svgSrc="/images/svg/title-bem-receptivo-menu.svg"
               pngSrc="/images/png/title-bem-receptivo-menu.png"
               alt="Título Bem Receptivo"

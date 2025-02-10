@@ -1,34 +1,27 @@
-import { useEffect } from 'react';
+import { Helmet } from "react-helmet-async";
+import { useEffect } from "react";
 
-const SeoGlobal = () => {
+const GlobalSeo = () => {
   useEffect(() => {
-    // Google Tag Manager
-    const gtmScript = document.createElement("script");
-    gtmScript.async = true;
-    gtmScript.src = "https://www.googletagmanager.com/gtm.js?id=GTM-W73D8WG";
-    document.head.appendChild(gtmScript);
-
-    // Google Analytics Script
-    const gtagScript = document.createElement("script");
-    gtagScript.innerHTML = `
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-WWTBRWZLJE');
-    `;
-    document.head.appendChild(gtagScript);
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag("js", new Date());
+    gtag("config", "G-WWTBRWZLJE");
   }, []);
 
   return (
-    <>
-      {/* Meta Tags for SEO */}
-      <meta charset="utf-8" />
+    <Helmet>
+      {/* Meta Tags para SEO */}
+      <meta charSet="UTF-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <meta name="description" content="Bem Receptivo - Passeios em Fortaleza - Ceará. Realizamos serviços de receptivo (Transfer IN/OUT) em Fortaleza e passeios no Ceará para Jericoacoara, Canoa Quebrada, Cumbuco, Beach Park, Lagoinha, Mundaú, Morro Branco, Praia das Fontes, Águas Belas e City Tour." />
+      <meta
+        name="description"
+        content="Bem Receptivo - Passeios em Fortaleza - Ceará. Realizamos serviços de receptivo e passeios no Ceará."
+      />
       <meta name="keywords" content="fortaleza, viagens, pacotes viagens fortaleza, jericoacoara, turismo no Ceará, e mais..." />
       <meta name="robots" content="index, follow" />
       <meta name="author" content="Bem Receptivo" />
-      
+
       {/* Open Graph Meta Tags */}
       <meta property="og:image" content="https://bemreceptivo.com.br/images/bem-receptivo-fortaleza-ceara.jpg" />
       <meta property="og:url" content="https://bemreceptivo.com.br/" />
@@ -47,12 +40,21 @@ const SeoGlobal = () => {
       <meta name="twitter:image" content="https://bemreceptivo.com.br/images/bem-receptivo-fortaleza-ceara.jpg" />
       <meta name="twitter:site" content="@bemreceptivo" />
 
-      {/* Title and Favicon */}
+      {/* Title e Favicon */}
       <title>Bem Receptivo - Passeios e Transfer em Fortaleza/Ceará</title>
       <link rel="canonical" href="https://bemreceptivo.com.br/" />
       <link rel="icon" href="/images/favicon.ico" />
-    </>
+
+      {/* Google Tag Manager */}
+      <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-W73D8WG"></script>
+      <script>{`
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-WWTBRWZLJE');
+      `}</script>
+    </Helmet>
   );
 };
 
-export default SeoGlobal;
+export default GlobalSeo;

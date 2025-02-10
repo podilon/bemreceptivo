@@ -1,4 +1,3 @@
-import 'react';
 import DestinoCard from './DestinoCard'; // Importando o DestinoCard atualizado
 
 const DestinosCards = () => {
@@ -8,6 +7,7 @@ const DestinosCards = () => {
       description: 'Conheça as incríveis dunas e praias paradisíacas de Jericoacoara.',
       image: {
         avif: '/images/avif/bem-receptivo-jeri-1.avif',
+        webp: '/images/webp/bem-receptivo-jeri-1.webp', 
         svg: '/images/svg/bem-receptivo-jeri-1.svg',
         png: '/images/png/bem-receptivo-jeri-1.png',
       },
@@ -19,6 +19,7 @@ const DestinosCards = () => {
       description: 'Uma das praias mais famosas do Ceará, conhecida pelo seu astral único.',
       image: {
         avif: '/images/avif/bem-receptivo-lagoinha.avif',
+        webp: '/images/webp/bem-receptivo-lagoinha.webp', 
         svg: '/images/svg/bem-receptivo-lagoinha.svg',
         png: '/images/png/bem-receptivo-lagoinha.png',
       },
@@ -30,6 +31,7 @@ const DestinosCards = () => {
       description: 'A Praia do Futuro é famosa por suas barracas de praia e águas cristalinas.',
       image: {
         avif: '/images/avif/bem-receptivo-fortaleza-1.avif',
+        webp: '/images/webp/bem-receptivo-fortaleza-1.webp', 
         svg: '/images/svg/bem-receptivo-fortaleza-1.svg',
         png: '/images/png/bem-receptivo-fortaleza-1.png',
       },
@@ -39,7 +41,7 @@ const DestinosCards = () => {
   ];
 
   return (
-    <div className="min-h-screen flex flex-col justify-center items-center bg-gradient-to-b from-yellow-300   via-yellow-400 to-orange-500   py-20 px-4">
+    <div className="min-h-screen flex flex-col justify-center items-center bg-gradient-to-b from-yellow-300 via-yellow-400 to-orange-500 py-20 px-4">
       <h1 className="text-3xl sm:text-4xl font-bold text-white text-center mb-12">
         Conheça nossos principais destinos no Ceará
       </h1>
