@@ -1,5 +1,5 @@
 // pages/ErrorPage/ErrorPage.jsx
-import React from 'react';
+import 'react';
 import { Link } from 'react-router-dom';
 
 const ErrorPage = () => {

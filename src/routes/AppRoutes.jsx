@@ -15,7 +15,7 @@ const AppRoutes = () => {
         <GlobalSeo /> {/* Meta tags de SEO */}
         <Header />
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/bemreceptivo/" element={<Home />} />
           <Route path="*" element={<ErrorPage />} />
         </Routes>
         <WhatsappButton phone="558541416666" />
