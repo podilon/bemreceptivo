@@ -1,4 +1,4 @@
-import React from 'react';
+import 'react';
 import { FaShuttleVan, FaMapMarkedAlt, FaUserFriends } from 'react-icons/fa';
 import DestinosCards from '../../components/Destinos/DestinosCards';
 
