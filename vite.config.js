@@ -9,4 +9,7 @@ export default defineConfig({
     tailwindcss()
   ],
   base: '/bemreceptivo/', 
+  build: {
+    sourcemap: true, // Ajuda a depurar e otimizar a performance
+  },
 })

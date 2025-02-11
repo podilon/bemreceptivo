@@ -1,10 +1,10 @@
-import  { useMemo } from "react";
+import { useMemo } from "react";
 import VideoCard from "./VideoCard";
 
 const VideoGallery = () => {
   const videos = useMemo(() => [
-    { title: "Litoral Leste", videoUrl: "https://www.youtube.com/embed/NDVaQ3yWsgY" },
-    { title: "Litoral Oeste", videoUrl: "https://www.youtube.com/embed/ybNZbaE7uSY" }
+    { title: "Litoral Leste", videoId: "NDVaQ3yWsgY" },
+    { title: "Litoral Oeste", videoId: "ybNZbaE7uSY" }
   ], []);
 
   return (
@@ -14,7 +14,7 @@ const VideoGallery = () => {
       </h1>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 w-full max-w-4xl">
         {videos.map((video) => (
-          <VideoCard key={video.videoUrl} title={video.title} videoUrl={video.videoUrl} />
+          <VideoCard key={video.videoId} title={video.title} videoId={video.videoId} />
         ))}
       </div>
     </div>
