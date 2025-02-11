@@ -12,7 +12,7 @@ export default defineConfig({
   build: {
     sourcemap: true, // Ajuda a depurar e otimizar a performance
     minify: 'terser',
-    //cssCodeSplit: true, // Separa o CSS em arquivos menores
+    cssCodeSplit: true, // Separa o CSS em arquivos menores
     rollupOptions: {
       output: {
         manualChunks(id) {
