@@ -1,45 +1,36 @@
-import { useState, memo } from "react";
+import { useState, useEffect, memo } from "react";
 
 const VideoCard = memo(({ url, title }) => {
   const [isPlaying, setIsPlaying] = useState(false);
-  const videoId = url.split("/embed/")[1]; // Extraindo ID do vídeo
-  const thumbnail = `https://img.youtube.com/vi/${videoId}/hqdefault.jpg?v=${new Date().getTime()}`;
+  const [thumbnail, setThumbnail] = useState("");
+
+  useEffect(() => {
+    const videoId = url.split("/embed/")[1]; // Extraindo ID do vídeo
+    setThumbnail(`https://img.youtube.com/vi/${videoId}/hqdefault.jpg`);
+  }, [url]); // Atualiza o thumbnail quando a URL muda
 
   return (
-    <div className="w-full flex justify-center">
-      {isPlaying ? (
-        <iframe
-          width="560"
-          height="315"
-          src={`${url}?autoplay=1`}
-          title={title}
-          allowFullScreen
-          className="w-full max-w-lg rounded-lg shadow-lg"
-        ></iframe>
-      ) : (
-        <div
-          className="relative cursor-pointer w-full max-w-lg"
-          onClick={() => setIsPlaying(true)}
-        >
+    <div className="flex justify-center">
+      <div className="relative w-[560px] h-[315px] p-2 bg-white border-4 border-white shadow-xl rounded-2xl">
+        {isPlaying ? (
+          <iframe
+            src={`${url}?autoplay=1`}
+            title={title}
+            allowFullScreen
+            className="w-full h-full rounded-xl shadow-lg"
+          ></iframe>
+        ) : (
           <img
             src={thumbnail}
             alt={title}
-            className="w-full rounded-lg shadow-lg"
-            loading="eager"  
-            fetchpriority="high" 
-             referrerPolicy="no-referrer"
+            className="w-full h-full object-cover rounded-xl cursor-pointer"
+            loading="eager"
+            fetchpriority="high"
+            referrerPolicy="no-referrer"
+            onClick={() => setIsPlaying(true)} // Inicia o vídeo ao clicar
           />
-          <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 rounded-lg">
-            <svg
-              className="w-16 h-16 text-white"
-              fill="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path d="M8 5v14l11-7z"></path>
-            </svg>
-          </div>
-        </div>
-      )}
+        )}
+      </div>
     </div>
   );
 });
