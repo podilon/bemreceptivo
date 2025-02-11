@@ -5,17 +5,25 @@ const GlobalSeo = () => {
   useEffect(() => {
     // Adia o carregamento do Google Analytics em 3 segundos para melhorar a performance
     setTimeout(() => {
-      const script = document.createElement("script");
-      script.src = "https://www.googletagmanager.com/gtag/js?id=G-WWTBRWZLJE";
-      script.async = true;
-      document.head.appendChild(script);
+      const gaScript = document.createElement("script");
+      gaScript.src = "https://www.googletagmanager.com/gtag/js?id=G-WWTBRWZLJE";
+      gaScript.async = true;
+      document.head.appendChild(gaScript);
 
-      script.onload = () => {
+      gaScript.onload = () => {
         window.dataLayer = window.dataLayer || [];
         function gtag() { window.dataLayer.push(arguments); }
         gtag("js", new Date());
         gtag("config", "G-WWTBRWZLJE");
       };
+    }, 3000);
+
+    // Carrega o script do Microsoft Clarity com o mesmo atraso
+    setTimeout(() => {
+      const clarityScript = document.createElement("script");
+      clarityScript.src = "https://www.clarity.ms/tag/n41878j8nt";
+      clarityScript.async = true;
+      document.head.appendChild(clarityScript);
     }, 3000);
 
     // Lazy Load para vídeos do YouTube
@@ -66,9 +74,6 @@ const GlobalSeo = () => {
       {/* Canonical e Favicon */}
       <link rel="canonical" href="https://bemreceptivo.com.br/" />
       <link rel="icon" href="/images/favicon.ico" />
-
-      {/* Microsoft Clarity */}
-      <script defer src="https://www.clarity.ms/tag/0.7.66/clarity.js"></script>
     </Helmet>
   );
 };
