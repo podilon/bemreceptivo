@@ -17,12 +17,12 @@ const Loading = () => <div>Carregando...</div>;
 const AppRoutes = () => {
   return (
     <HelmetProvider>
-      <Router>
+      <Router basename="/bemreceptivo"> {/* Adiciona o basename para o GitHub Pages */}
         <GlobalSeo />
         <Header />
         <Suspense fallback={<Loading />}>
           <Routes>
-            <Route path="/bemreceptivo/" element={<Home />} />
+            <Route path="/" element={<Home />} />
             <Route path="*" element={<ErrorPage />} />
           </Routes>
         </Suspense>

@@ -10,7 +10,7 @@ export default defineConfig({
   ],
   base: '/bemreceptivo/',
   build: {
-    sourcemap: true, // Ajuda a depurar e otimizar a performance
+    //sourcemap: true, // Ajuda a depurar e otimizar a performance
     minify: 'terser',
     cssCodeSplit: true, // Separa o CSS em arquivos menores
     rollupOptions: {
