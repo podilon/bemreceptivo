@@ -4,37 +4,40 @@ const DestinosCards = () => {
   const destinos = [
     {
       title: 'Jericoacoara',
-      description: 'Conheça as incríveis dunas e praias paradisíacas de Jericoacoara.',
+      description: 'Conheça as incríveis lagoas de águas cristalinas e praias paradisíacas de Jericoacoara.',
       image: {
         avif: '/images/avif/bem-receptivo-jeri-1.avif',
         webp: '/images/webp/bem-receptivo-jeri-1.webp', 
         svg: '/images/svg/bem-receptivo-jeri-1.svg',
         png: '/images/png/bem-receptivo-jeri-1.png',
       },
+      alt: 'Vista das dunas, lagoas cristalinas e praias de Jericoacoara, Ceará',
       buttonText: 'Ver Mais',
       onButtonClick: () => alert('Mais informações sobre Jericoacoara'),
     },
     {
       title: 'Lagoinha',
-      description: 'Uma das praias mais famosas do Ceará, conhecida pelo seu astral único.',
+      description: 'Paisagem deslumbrante da Praia de Lagoinha, com falésias avermelhadas contrastando com o verde mar, coqueiros balançando ao vento e jangadas coloridas ancoradas na areia dourada',
       image: {
         avif: '/images/avif/bem-receptivo-lagoinha.avif',
         webp: '/images/webp/bem-receptivo-lagoinha.webp', 
         svg: '/images/svg/bem-receptivo-lagoinha.svg',
         png: '/images/png/bem-receptivo-lagoinha.png',
       },
+      alt: 'Praia de Lagoinha, com mar azul e coqueiros ao fundo',
       buttonText: 'Ver Mais',
       onButtonClick: () => alert('Mais informações sobre Lagoinha'),
     },
     {
-      title: 'Praia do Futuro',
-      description: 'A Praia do Futuro é famosa por suas barracas de praia e águas cristalinas.',
+      title: 'Fortaleza',
+      description: 'Explore a capital cearense, famosa por suas belas praias e rica cultura.',
       image: {
         avif: '/images/avif/bem-receptivo-fortaleza-1.avif',
         webp: '/images/webp/bem-receptivo-fortaleza-1.webp', 
         svg: '/images/svg/bem-receptivo-fortaleza-1.svg',
         png: '/images/png/bem-receptivo-fortaleza-1.png',
       },
+      alt: 'Praia do Futuro em Fortaleza, conhecida por suas barracas e águas cristalinas',
       buttonText: 'Ver Mais',
       onButtonClick: () => alert('Mais informações sobre Praia do Futuro'),
     },
@@ -54,6 +57,7 @@ const DestinosCards = () => {
             description={destino.description}
             buttonText={destino.buttonText}
             onButtonClick={destino.onButtonClick}
+            alt={destino.alt} // Agora passa o atributo alt corretamente
             className="w-[90%] sm:w-[80%] h-[400px] mx-auto shadow-lg shadow-black/20 rounded-lg transition-all duration-300 hover:scale-105 hover:shadow-2xl"
           />
         ))}

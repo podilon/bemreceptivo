@@ -10,7 +10,7 @@ const Hero = () => {
         svg: '/images/svg/bem-receptivo-fortaleza-1.svg',
         png: '/images/png/bem-receptivo-fortaleza-1.png',
       },
-      description: 'Explore as belezas de Fortaleza, suas praias e cultura.',
+      description: 'O coração vibrante do Ceará, onde cultura e mar se encontram.',
     },
     {
       title: 'Jericoacoara',
@@ -19,7 +19,7 @@ const Hero = () => {
         svg: '/images/svg/bem-receptivo-jeri-1.svg',
         png: '/images/png/bem-receptivo-jeri-1.png',
       },
-      description: 'Visite o paraíso em Jericoacoara, com suas dunas e lagoas.',
+      description: 'Um paraíso escondido entre dunas e lagoas cristalinas.',
     },
     {
       title: 'Lagoinha',
@@ -28,7 +28,7 @@ const Hero = () => {
         svg: '/images/svg/bem-receptivo-lagoinha.svg',
         png: '/images/png/bem-receptivo-lagoinha.png',
       },
-      description: 'Descubra a tranquilidade e os ventos de Lagoinha.',
+      description: 'Um refúgio paradisíaco com mar verde e coqueiros dançantes ao vento.',
     },
   ];
 
@@ -66,7 +66,7 @@ const Hero = () => {
             avifSrc={cardsData[currentImageIndex].image.avif}
             svgSrc={cardsData[currentImageIndex].image.svg}
             pngSrc={cardsData[currentImageIndex].image.png}
-            alt={cardsData[currentImageIndex].title}
+            alt={`${cardsData[currentImageIndex].title} - ${cardsData[currentImageIndex].description}`}
             className="rounded-full object-cover shadow-lg 
                        w-[250px] h-[250px] sm:w-[300px] sm:h-[300px] md:w-[350px] md:h-[350px] 
                        lg:w-[460px] lg:h-[460px]"

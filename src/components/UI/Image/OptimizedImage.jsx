@@ -1,22 +1,39 @@
-const OptimizedImage = ({ avifSrc, webpSrc, svgSrc, pngSrc, alt = "Imagem", className = "" }) => {
-  // Ajusta automaticamente os caminhos das imagens com base na configuração do Vite
-  const getImagePath = (src) => (src ? `${import.meta.env.BASE_URL}${src.replace(/^\/+/, '')}` : null);
+const OptimizedImage = ({
+  avifSrc,
+  webpSrc,
+  svgSrc,
+  pngSrc,
+  alt = "Imagem",
+  className = "",
+  width,
+  height,
+  loading = "lazy" // Permite configurar se deseja lazy loading ou não
+}) => {
+  // Ajusta automaticamente os caminhos das imagens no Vite
+  const getImagePath = (src) => {
+    if (!src) return null;
+    return src.startsWith("http") ? src : `${import.meta.env.BASE_URL}${src.replace(/^\/+/, "")}`;
+  };
 
   return (
     <picture>
-      {/* AVIF - Melhor formato de compressão disponível */}
       {avifSrc && <source srcSet={getImagePath(avifSrc)} type="image/avif" />}
-      {/* WebP - Alternativa intermediária caso AVIF não seja suportado */}
       {webpSrc && <source srcSet={getImagePath(webpSrc)} type="image/webp" />}
-      {/* SVG - Se aplicável */}
       {svgSrc && <source srcSet={getImagePath(svgSrc)} type="image/svg+xml" />}
-      {/* PNG - Fallback padrão */}
-      <img
-        src={getImagePath(pngSrc)}
-        alt={alt}
-        className={className}
-        loading="lazy" // Lazy loading para otimização
-      />
+      
+      {/* Fallback seguro */}
+      {pngSrc ? (
+        <img
+          src={getImagePath(pngSrc)}
+          alt={alt}
+          className={className}
+          loading={loading}
+          width={width}
+          height={height}
+        />
+      ) : (
+        <span className="text-red-500">Erro: Nenhuma imagem fornecida</span>
+      )}
     </picture>
   );
 };
