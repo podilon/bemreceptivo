@@ -8,8 +8,26 @@ export default defineConfig({
     react(),
     tailwindcss()
   ],
-  base: '/bemreceptivo/', 
+  base: '/bemreceptivo/',
   build: {
     sourcemap: true, // Ajuda a depurar e otimizar a performance
+    minify: 'terser',
+    cssCodeSplit: true, // Separa o CSS em arquivos menores
+    rollupOptions: {
+      output: {
+        manualChunks(id) {
+          if (id.includes("node_modules")) {
+            if (id.includes("react")) return "react"; // React separado
+            if (id.includes("tailwindcss")) return "tailwind"; // Tailwind separado
+            return "vendor"; // Restante das libs
+          }
+        },
+      },
+    },
+    terserOptions: {
+      compress: {
+        drop_console: true, // Remove logs do console
+      },
+    },
   },
 })

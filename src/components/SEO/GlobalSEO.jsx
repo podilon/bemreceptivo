@@ -3,24 +3,37 @@ import { useEffect } from "react";
 
 const GlobalSeo = () => {
   useEffect(() => {
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
-    gtag("js", new Date());
-    gtag("config", "G-WWTBRWZLJE");
+    // Adia o carregamento do Google Analytics em 3 segundos para melhorar a performance
+    setTimeout(() => {
+      const script = document.createElement("script");
+      script.src = "https://www.googletagmanager.com/gtag/js?id=G-WWTBRWZLJE";
+      script.async = true;
+      document.head.appendChild(script);
+
+      script.onload = () => {
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { window.dataLayer.push(arguments); }
+        gtag("js", new Date());
+        gtag("config", "G-WWTBRWZLJE");
+      };
+    }, 3000);
 
     // Lazy Load para vídeos do YouTube
     const iframes = document.querySelectorAll("iframe[data-lazy]");
-    const observer = new IntersectionObserver((entries, obs) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const iframe = entry.target;
-          iframe.src = iframe.dataset.src;
-          iframe.removeAttribute("data-lazy");
-          obs.unobserve(iframe);
-        }
+    if (iframes.length > 0) {
+      const observer = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const iframe = entry.target;
+            iframe.src = iframe.dataset.src;
+            iframe.removeAttribute("data-lazy");
+            obs.unobserve(iframe);
+          }
+        });
       });
-    });
-    iframes.forEach(iframe => observer.observe(iframe));
+
+      iframes.forEach(iframe => observer.observe(iframe));
+    }
   }, []);
 
   return (
@@ -53,15 +66,6 @@ const GlobalSeo = () => {
       {/* Canonical e Favicon */}
       <link rel="canonical" href="https://bemreceptivo.com.br/" />
       <link rel="icon" href="/images/favicon.ico" />
-
-      {/* Google Analytics */}
-      <script async src="https://www.googletagmanager.com/gtag/js?id=G-WWTBRWZLJE"></script>
-      <script>{`
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-WWTBRWZLJE');
-      `}</script>
 
       {/* Microsoft Clarity */}
       <script defer src="https://www.clarity.ms/tag/0.7.66/clarity.js"></script>
